@@ -16,7 +16,7 @@ public class UserController {
     private UserService userService;
 
     @GetMapping
-    public List<Product> getAllUser() {
+    public List<User> getAllUser() {
         return userService.getAllUsers();
     }
 
@@ -37,8 +37,10 @@ public class UserController {
         if (userOptional.isPresent()) {
             User user = userDetails.get();
             user.setName(userOptional.getName());
-            user.setDescription(userOptional.getDescription());
-            user.setPrice(userOptional.getPrice());
+            user.setRegion(userOptional.getRegion());
+            user.setBio(userOptional.getBio());
+            user.setDob(userOptional.getDob());
+            user.setSkills(userOptional.getSkiils());
             return ResponseEntity.ok(userService.updateProduct(user));
         } else {
             return ResponseEntity.notFound().build();

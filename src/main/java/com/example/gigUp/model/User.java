@@ -12,7 +12,7 @@ import jakarta.persistence.GenerationType;
 public class User {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Long userId;
+    private Long id;
     private String region;
     private String bio;
     private String name;
@@ -20,7 +20,7 @@ public class User {
     private List<String> skills; 
 
     public Long getUserId() {
-        return this.userId;
+        return this.id;
     }
 
     public void setUserId(Long userId) {
