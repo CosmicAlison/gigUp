@@ -23,8 +23,8 @@ public class User {
         return this.id;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setUserId(Long id) {
+        this.id = id;
     }
 
     public String getRegion() {

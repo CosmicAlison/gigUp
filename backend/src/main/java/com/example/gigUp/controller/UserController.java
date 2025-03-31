@@ -1,4 +1,4 @@
-package main.java.com.example.gigUp.controller;
+package com.example.gigUp.controller;
 
 import com.example.gigUp.model.User;
 import com.example.gigUp.service.UserService;
@@ -41,7 +41,7 @@ public class UserController {
             user.setBio(userOptional.getBio());
             user.setDob(userOptional.getDob());
             user.setSkills(userOptional.getSkiils());
-            return ResponseEntity.ok(userService.updateProduct(user));
+            return ResponseEntity.ok(userService.updateUser(user));
         } else {
             return ResponseEntity.notFound().build();
         }

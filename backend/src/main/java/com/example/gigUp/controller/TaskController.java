@@ -1,4 +1,4 @@
-package main.java.com.example.gigUp.controller;
+package com.example.gigUp.controller;
 
 import com.example.gigUp.model.Task;
 import com.example.gigUp.service.TaskService;
@@ -18,13 +18,13 @@ public class TaskController {
 
     @GetMapping
     public List<Task> getAllUser() {
-        return taskService.getAlltasks();
+        return taskService.getAllTasks();
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Task> getTaskById(@PathVariable Long id) {
         Optional<Task> task = taskService.getTaskById(id);
-        return user.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+        return task.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @PostMapping
@@ -36,14 +36,14 @@ public class TaskController {
     public ResponseEntity<Task> updateTask(@PathVariable Long id, @RequestBody Task taskDetails) {
         Optional<Task> taskOptional = taskService.getTaskById(id);
         if (taskOptional.isPresent()) {
-            Task task = taskDetails.get();
-            task.setBidders(taskOptional.getBidders());
-            task.setCategory(taskOptional.getCategory());
-            task.setCompleter(taskOptional.getCompleter());
-            task.setCompletionDate(taskOptional.getCompletionDate());
-            task.setDescription(taskOptional.getDescription());
-            task.setDuration(taskOptional.getDuration());
-            return ResponseEntity.ok(userService.updateProduct(user));
+            Task task = taskOptional.get();
+            task.setBidders(taskDetails.getBidders());
+            task.setCategory(taskDetails.getCategory());
+            task.setCompleter(taskDetails.getCompleter());
+            task.setCompletionDate(taskDetails.getCompletionDate());
+            task.setDescription(taskDetails.getDescription());
+            task.setDuration(taskDetails.getDuration());
+            return ResponseEntity.ok(taskService.updateTask(task));
         } else {
             return ResponseEntity.notFound().build();
         }
