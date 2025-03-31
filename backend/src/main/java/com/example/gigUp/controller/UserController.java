@@ -35,12 +35,12 @@ public class UserController {
     public ResponseEntity<User> updateUser(@PathVariable Long id, @RequestBody User userDetails) {
         Optional<User> userOptional = userService.getUserById(id);
         if (userOptional.isPresent()) {
-            User user = userDetails.get();
-            user.setName(userOptional.getName());
-            user.setRegion(userOptional.getRegion());
-            user.setBio(userOptional.getBio());
-            user.setDob(userOptional.getDob());
-            user.setSkills(userOptional.getSkiils());
+            User user = userOptional.get();
+            user.setName(userDetails.getName());
+            user.setRegion(userDetails.getRegion());
+            user.setBio(userDetails.getBio());
+            user.setDob(userDetails.getDob());
+            user.setSkills(userDetails.getSkills());
             return ResponseEntity.ok(userService.updateUser(user));
         } else {
             return ResponseEntity.notFound().build();
