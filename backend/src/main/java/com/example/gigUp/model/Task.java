@@ -13,9 +13,9 @@ public class Task {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
-    private String poster;
-    private List<String> bidders;
-    private String completer;
+    private User poster;
+    private List<User> bidders;
+    private User completer;
     private Date completionDate;
     private String category;
     private Integer rate;
@@ -30,27 +30,27 @@ public class Task {
         this.id = id;
     }
 
-    public String getPoster() {
+    public User getPoster() {
         return this.poster;
     }
 
-    public void setPoster(String poster) {
+    public void setPoster(User poster) {
         this.poster = poster;
     }
 
-    public List<String> getBidders() {
+    public List<User> getBidders() {
         return this.bidders;
     }
 
-    public void setBidders(List<String> bidders) {
+    public void setBidders(List<User> bidders) {
         this.bidders = bidders;
     }
 
-    public String getCompleter() {
+    public User getCompleter() {
         return this.completer;
     }
 
-    public void setCompleter(String completer) {
+    public void setCompleter(User completer) {
         this.completer = completer;
     }
 

@@ -7,6 +7,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.GenerationType;
+import java.util.Objects;
 
 @Entity
 public class User {
@@ -17,10 +18,120 @@ public class User {
     private String bio;
     private String name;
     private Date dob;
+    private List<Task> completedTasks;
+    private List<Task> postedTasks;
     private List<String> skills; 
 
     public Long getUserId() {
         return this.id;
+    }
+
+    public User() {
+    }
+
+    public User(Long id, String region, String bio, String name, Date dob, List<Task> completedTasks, List<Task> postedTasks, List<String> skills) {
+        this.id = id;
+        this.region = region;
+        this.bio = bio;
+        this.name = name;
+        this.dob = dob;
+        this.completedTasks = completedTasks;
+        this.postedTasks = postedTasks;
+        this.skills = skills;
+    }
+
+    public Long getId() {
+        return this.id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public List<Task> getCompletedTasks() {
+        return this.completedTasks;
+    }
+
+    public void setCompletedTasks(List<Task> completedTasks) {
+        this.completedTasks = completedTasks;
+    }
+
+    public List<Task> getPostedTasks() {
+        return this.postedTasks;
+    }
+
+    public void setPostedTasks(List<Task> postedTasks) {
+        this.postedTasks = postedTasks;
+    }
+
+    public User id(Long id) {
+        setId(id);
+        return this;
+    }
+
+    public User region(String region) {
+        setRegion(region);
+        return this;
+    }
+
+    public User bio(String bio) {
+        setBio(bio);
+        return this;
+    }
+
+    public User name(String name) {
+        setName(name);
+        return this;
+    }
+
+    public User dob(Date dob) {
+        setDob(dob);
+        return this;
+    }
+
+    public User completedTasks(List<Task> completedTasks) {
+        setCompletedTasks(completedTasks);
+        return this;
+    }
+
+    public User postedTasks(List<Task> postedTasks) {
+        setPostedTasks(postedTasks);
+        return this;
+    }
+
+    public User skills(List<String> skills) {
+        setSkills(skills);
+        return this;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this)
+            return true;
+        if (!(o instanceof User)) {
+            return false;
+        }
+        User user = (User) o;
+        return Objects.equals(id, user.id) && Objects.equals(region, user.region) && Objects.equals(bio, user.bio) && Objects.equals(name, user.name) && Objects.equals(dob, user.dob) && Objects.equals(completedTasks, user.completedTasks) && Objects.equals(postedTasks, user.postedTasks) && Objects.equals(skills, user.skills);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, region, bio, name, dob, completedTasks, postedTasks, skills);
+    }
+
+    @Override
+    public String toString() {
+        return "{" +
+            " id='" + getId() + "'" +
+            ", region='" + getRegion() + "'" +
+            ", bio='" + getBio() + "'" +
+            ", name='" + getName() + "'" +
+            ", dob='" + getDob() + "'" +
+            ", completedTasks='" + getCompletedTasks() + "'" +
+            ", postedTasks='" + getPostedTasks() + "'" +
+            ", skills='" + getSkills() + "'" +
+            "}";
     }
 
     public void setUserId(Long id) {
