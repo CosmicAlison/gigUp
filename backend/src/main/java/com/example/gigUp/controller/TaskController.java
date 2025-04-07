@@ -43,7 +43,12 @@ public class TaskController {
             task.setCompletionDate(taskDetails.getCompletionDate());
             task.setDescription(taskDetails.getDescription());
             task.setDuration(taskDetails.getDuration());
-            return ResponseEntity.ok(taskService.updateTask(task));
+            task.setTitle(taskDetails.getTitle());
+            task.setLocation(taskDetails.getLocation());
+            task.setRegional(taskDetails.getRegional());
+            task.setWorldwide(taskDetails.getWorldwide());
+            task.setKeywords(taskDetails.getKeywords());
+            return ResponseEntity.ok(taskService.updateTask(id, task));
         } else {
             return ResponseEntity.notFound().build();
         }

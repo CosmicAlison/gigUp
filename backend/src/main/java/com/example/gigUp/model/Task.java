@@ -13,7 +13,11 @@ public class Task {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
+    private String title;
     private User poster;
+    private String location;
+    private Boolean regional;
+    private Boolean worldwide; 
     private List<User> bidders;
     private User completer;
     private Date completionDate;
@@ -21,6 +25,47 @@ public class Task {
     private Integer rate;
     private String description;
     private Integer duration;
+    private List<String> keywords; 
+
+    public String getLocation() {
+        return this.location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+    
+    public List<String> getKeywords() {
+        return this.keywords;
+    }
+
+    public void setKeywords(List<String> keywords) {
+        this.keywords = keywords;
+    }
+
+    public Boolean isRegional() {
+        return this.regional;
+    }
+
+    public Boolean getRegional() {
+        return this.regional;
+    }
+
+    public void setRegional(Boolean regional) {
+        this.regional = regional;
+    }
+
+    public Boolean isWorldwide() {
+        return this.worldwide;
+    }
+
+    public Boolean getWorldwide() {
+        return this.worldwide;
+    }
+
+    public void setWorldwide(Boolean worldwide) {
+        this.worldwide = worldwide;
+    }
 
     public Long getId() {
         return this.id;
@@ -28,6 +73,14 @@ public class Task {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getTitle(){
+        return this.title;
     }
 
     public User getPoster() {

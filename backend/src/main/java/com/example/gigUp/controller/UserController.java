@@ -37,7 +37,7 @@ public class UserController {
         if (userOptional.isPresent()) {
             User user = userOptional.get();
             user.setName(userDetails.getName());
-            user.setRegion(userDetails.getRegion());
+            user.setlocation(userDetails.getlocation());
             user.setBio(userDetails.getBio());
             user.setDob(userDetails.getDob());
             user.setSkills(userDetails.getSkills());

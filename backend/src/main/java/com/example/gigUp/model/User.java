@@ -14,7 +14,7 @@ public class User {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
-    private String region;
+    private String location;
     private String bio;
     private String name;
     private Date dob;
@@ -29,9 +29,9 @@ public class User {
     public User() {
     }
 
-    public User(Long id, String region, String bio, String name, Date dob, List<Task> completedTasks, List<Task> postedTasks, List<String> skills) {
+    public User(Long id, String location, String bio, String name, Date dob, List<Task> completedTasks, List<Task> postedTasks, List<String> skills) {
         this.id = id;
-        this.region = region;
+        this.location = location;
         this.bio = bio;
         this.name = name;
         this.dob = dob;
@@ -69,8 +69,8 @@ public class User {
         return this;
     }
 
-    public User region(String region) {
-        setRegion(region);
+    public User location(String location) {
+        setlocation(location);
         return this;
     }
 
@@ -112,19 +112,19 @@ public class User {
             return false;
         }
         User user = (User) o;
-        return Objects.equals(id, user.id) && Objects.equals(region, user.region) && Objects.equals(bio, user.bio) && Objects.equals(name, user.name) && Objects.equals(dob, user.dob) && Objects.equals(completedTasks, user.completedTasks) && Objects.equals(postedTasks, user.postedTasks) && Objects.equals(skills, user.skills);
+        return Objects.equals(id, user.id) && Objects.equals(location, user.location) && Objects.equals(bio, user.bio) && Objects.equals(name, user.name) && Objects.equals(dob, user.dob) && Objects.equals(completedTasks, user.completedTasks) && Objects.equals(postedTasks, user.postedTasks) && Objects.equals(skills, user.skills);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, region, bio, name, dob, completedTasks, postedTasks, skills);
+        return Objects.hash(id, location, bio, name, dob, completedTasks, postedTasks, skills);
     }
 
     @Override
     public String toString() {
         return "{" +
             " id='" + getId() + "'" +
-            ", region='" + getRegion() + "'" +
+            ", location='" + getlocation() + "'" +
             ", bio='" + getBio() + "'" +
             ", name='" + getName() + "'" +
             ", dob='" + getDob() + "'" +
@@ -138,12 +138,12 @@ public class User {
         this.id = id;
     }
 
-    public String getRegion() {
-        return this.region;
+    public String getlocation() {
+        return this.location;
     }
 
-    public void setRegion(String region) {
-        this.region = region;
+    public void setlocation(String location) {
+        this.location = location;
     }
 
     public String getBio() {
